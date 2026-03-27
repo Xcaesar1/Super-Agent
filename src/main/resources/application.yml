@@ -1,9 +1,9 @@
 spring:
   application:
     name: super-ai-agent
-  server:
+server:
     port: 8123
-    serverlet:
+    servlet:
       context_path: /api
 # springdoc-openapi ??????
 springdoc:
