@@ -1,11 +1,13 @@
 spring:
   application:
     name: super-ai-agent
+  profiles:
+    active: local
 server:
-    port: 8123
-    servlet:
-      context_path: /api
-# springdoc-openapi ??????
+  port: 8123
+  servlet:
+    context_path: /api
+# springdoc-openapi 接口配置文档
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -17,8 +19,20 @@ springdoc:
     - group: 'default'
       paths-to-match: '/**'
       packages-to-scan: com.xing.superaiagent.controller
-# knife4j???????????????
+# knife4j的增强配置
 knife4j:
   enable: true
   setting:
     language: zh_cn
+
+langchain4j:
+  open-ai:
+    chat-model:
+      # MiniMax 的 OpenAI 兼容基础路径
+      base-url: https://api.minimaxi.com/v1
+      # 填写你的 MiniMax API Key
+      api-key: sk-cp-nlAmjjIFqK6aM0GKwuzY514SlQWSeIW00vPfdjs1_YJSiGoIQOS762ceASULCjStRZ5x3zukqJ0dEjyKlObXNP3csKohO-3kLlkzbWsKKvUlGnF1BzGtZ40
+      # 模型名称，例如你文档中的 MiniMax-M2.7 或 abab6.5s-chat
+      model-name: MiniMax-M2.7
+      log-requests: true
+      log-responses: true
